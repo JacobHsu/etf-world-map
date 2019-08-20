@@ -1,0 +1,24 @@
+{
+  "name": "etf-world-map",
+  "version": "1.0.0",
+  "description": "[DataMaps](https://datamaps.github.io/)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "gh-pages -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JacobHsu/etf-world-map.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JacobHsu/etf-world-map/issues"
+  },
+  "homepage": "https://github.com/JacobHsu/etf-world-map#readme",
+  "devDependencies": {
+    "gh-pages": "^2.1.1"
+  }
+}
