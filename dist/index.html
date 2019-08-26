@@ -1,34 +1,91 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.3.0/css/flag-icon.min.css'>
     <style>
         .active { fill: blue !important;}
         /*.datamaps-key dt, .datamaps-key dd {float: none !important;}
         .datamaps-key {right: -50px; top: 0;}*/
     </style>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous">
 </head>
 <body>
 
-<div id="container1" style="border:1px dotted blue; width: 700px; height: 475px; position: relative;"></div>
 
+<div id="container1" style="border:1px dotted blue; width: 700px; height: 475px; position: relative; float: left;"></div>
+<div id="app">
+        <table class="pure-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Country</th>
+                        <th>國家</th>
+                        <th>ETF</th>
+                    </tr>
+                </thead>
+            
+                <tbody>
+                    <tr v-for="item in items">
+                        <td><span :class="`flag-icon flag-icon-${item.iso}`" aria-label="Flag"></span></td>
+                        <td>{{item.country}}</td>
+                        <td><a target="_blank" :href="'https://www.google.com/maps/place/'+item.name">{{item.name}}</a></td>
+                        <td><a target="_blank" :href="'https://www.moneydj.com/ETF/X/Basic/Basic0007.xdjhtm?etfid='+item.etf">{{item.etf}}</a></td>
+                    </tr>
+                </tbody>
+            </table>
+</div>
+ 
 <script src="js/components/d3/d3.min.js"></script>
 <script src="js/components/topojson/topojson.js"></script>
 <script src="datamaps.world.js"></script>
 
+<script src="https://npmcdn.com/vue/dist/vue.js"></script>
 <script>
+    new Vue({
+    el: '#app',
+        data: {
+            items: [
+                { iso: 'ar', country: 'Argentina', name:'阿根廷', etf: 'ARGT' },
+                { iso: 'au', country: 'Australia', name:'澳大利亞', etf: 'EWA' },
+                { iso: 'at', country: 'Austria', name:'奧地利', etf: 'EWO' },
+                { iso: 'be', country: 'Belgium', name:'比利時', etf: 'EWK' },
+                { iso: 'br', country: 'Brazil', name:'巴西', etf: 'EWZ' },
+                { iso: 'ca', country: 'Canada', name:'加拿大', etf: 'EWC' },
+                { iso: 'cl', country: 'Chile', name:'智利', etf: 'ECH' },
+                { iso: 'cn', country: 'China', name:'中國', etf: 'MCHI' },
+                { iso: 'co', country: 'Colombia', name:'哥倫比亞', etf: 'ICOL' },
+                { iso: 'dk', country: 'Denmark', name:'丹麥', etf: 'EDEN' },
+                { iso: 'eg', country: 'Egypt', name:'埃及', etf: 'EGPT' },
+                { iso: 'fi', country: 'Finland', name:'芬蘭', etf: 'EFNL' },
+                { iso: 'fr', country: 'France', name:'法國', etf: 'EWQ' },
+                { iso: 'de', country: 'Germany', name:'德國', etf: 'EWG' },
+                { iso: 'gr', country: 'Greece', name:'希臘', etf: 'GREK' },
+                { iso: 'hk', country: 'Hong Kong', name:'香港', etf: 'EWH' },
+                { iso: 'in', country: 'India', name:'印度', etf: 'INDA' },
+                { iso: 'id', country: 'Indonesia', name:'印尼', etf: 'EIDO' },
+                { iso: 'ie', country: 'Ireland', name:'愛爾蘭', etf: 'EIRL' },
+                { iso: 'il', country: 'Israel', name:'以色列', etf: 'EIS' },
+                { iso: 'it', country: 'Italy', name:'意大利', etf: 'EWI' },
+                { iso: 'it', country: 'Italy', name:'意大利', etf: 'EWI' },
+                { iso: 'jp', country: 'Japan', name:'日本', etf: 'EWJ' },
+            ]
+        }
+    })
     // example data from server
-    var series = [
-        ["BLR",75],["BLZ",43],["RUS",50],["RWA",88],["SRB",21],["TLS",43],
-        ["REU",21],["TKM",19],["TJK",60],["ROU",4],["TKL",44],["GNB",38],
-        ["GUM",67],["GTM",2],["SGS",95],["GRC",60],["GNQ",57],["GLP",53],
-        ["JPN",59],["GUY",24],["GGY",4],["GUF",21],["GEO",42],["GRD",65],
+    var series = [ ["ARG",1],["AUS",2],["AUT",3],["BEL",4],["EWZ",5],
+        ["CAN",6],["CHL",7],["CHN",8],["COL",9],["DNK",10],["EGY",11],
+        ["FIN",12],["FRA",13],["DEU",14],["GRC",15],["HKG",16],["IND",17],
+        ["IDN",18],["IRL",19],["ITA",20],["JPN",21],["RUS",50],["RWA",88],["SRB",21],["TLS",43],
+        ["REU",21],["TKM",19],["ISR",20],["TJK",60],["ROU",4],["TKL",44],["GNB",38],
+        ["GUM",67],["GTM",2],["SGS",95],["GNQ",57],["GLP",53],
+        ["GUY",24],["GGY",4],["GUF",21],["GEO",42],["GRD",65],
         ["GBR",14],["GAB",47],["SLV",15],["GIN",19],["GMB",63],["GRL",56],
         ["ERI",57],["MNE",93],["MDA",39],["MDG",71],["MAF",16],["MAR",8],
         ["MCO",25],["UZB",81],["MMR",21],["MLI",95],["MAC",33],["MNG",93],
         ["MHL",15],["MKD",52],["MUS",19],["MLT",69],["MWI",37],["MDV",44],
         ["MTQ",13],["MNP",21],["MSR",89],["MRT",20],["IMN",72],["UGA",59],
-        ["TZA",62],["MYS",75],["MEX",80],["ISR",77],["FRA",54],["IOT",56],
-        ["SHN",91],["FIN",51],["FJI",22],["FLK",4],["FSM",69],["FRO",70],
+        ["TZA",62],["MYS",75],["MEX",80],["IOT",56],
+        ["SHN",91],["FJI",22],["FLK",4],["FSM",69],["FRO",70],
         ["NIC",66],["NLD",53],["NOR",7],["NAM",63],["VUT",15],["NCL",66],
         ["NER",34],["NFK",33],["NGA",45],["NZL",96],["NPL",21],["NRU",13],
         ["NIU",6],["COK",19],["XKX",32],["CIV",27],["CHE",65],["COL",64],
@@ -60,7 +117,7 @@
         // item example value ["USA", 70]
         var iso = item[0],
                 value = item[1];
-        dataset[iso] = { numberOfThings: value, fillColor: paletteScale(value) };
+        dataset[iso] = { iso: iso,numberOfThings: value, fillColor: paletteScale(value) };
     });
 
     // render map
@@ -82,10 +139,12 @@
             // show desired information in tooltip
             popupTemplate: function(geo, data) {
                 // don't show tooltip if country don't present in dataset
+                console.info(geo.properties, data)
                 if (!data) { return ; }
                 // tooltip content
                 return ['<div class="hoverinfo">',
                     '<strong>', geo.properties.name, '</strong>',
+                    '(', data.iso, ')',
                     '<br>Count: <strong>', data.numberOfThings, '</strong>',
                     '</div>'].join('');
             }
