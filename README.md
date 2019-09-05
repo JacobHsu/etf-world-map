@@ -15,6 +15,7 @@ package.json
 ```
 `$ npm run deploy`  
 https://jacobhsu.github.io/etf-world-map/  
+https://jacobhsu.tw/etf-world  
 
 
 # Reference
