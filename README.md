@@ -21,7 +21,8 @@ https://jacobhsu.tw/etf-world
 # Reference
 
 [ETF Country Exposure Tool](https://etfdb.com/tool/etf-country-exposure-tool/)  
-[purecss](https://purecss.io/)
+[purecss](https://purecss.io/)  
+purecss [Grids](https://purecss.io/grids/)  
 [flag-icon-css](http://flag-icon-css.lip.is/) A collection of all country flags in SVG — plus the CSS for easier integration. `ISO CODE`    
 [ISO 3 CODE](https://zh.wikipedia.org/wiki/ISO_3166-1三位字母代碼)  
 [ETFdb.com](https://etfdb.com/screener/)  
@@ -30,3 +31,4 @@ https://jacobhsu.tw/etf-world
 > F1 `https://etfdb.com/search/?utf8=✓&q=` & A8 `Argentina` = `=$F$1&A8`  
 [World ETF spreadsheets](https://docs.google.com/spreadsheets/d/1OFsHcJFNT2epzgSD0Y55kaTSvpp9MfVw1VyAdG-xdps/edit?usp=sharing)
 `ctrl + shift + v` vs code browser preview  
+[Hidden/Visible responsive helper classes for PureCSS Framework - using pixels or EMs](https://gist.github.com/rowej83/34117abebf53cd895fa4)
