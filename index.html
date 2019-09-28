@@ -140,31 +140,18 @@
         }
     })
     // example data from server
-    var series = [ ["ARG",1],["AUS",2],["AUT",3],["BEL",4],["EWZ",5],
-        ["CAN",6],["CHL",7],["CHN",8],["COL",9],["DNK",10],["EGY",11],
-        ["FIN",12],["FRA",13],["DEU",14],["GRC",15],["HKG",16],["IND",17],
-        ["IDN",18],["IRL",19],["ITA",20],["JPN",21],["KOR",22],["MYS",23],
-        ["MEX",24],["NLD",25],["NZL",26],["NGA",27],["NOR",28],["PAK",29],
-        ["PER",30],["PHL",31],["POL",32],["PRT",33],["QAT",34],["RUS",35],
-        ["SAU",36],["SGP",37],["ZAF",38],["ESP",39],["SWE",40],["SWE",41],
-        ["RWA",88],["SRB",21],["TLS",43],["CHE",44],["TWN",45],["THA",46],
-        ["TUR",47],["ARE",48],["GBR",49],["USA",50],["VNM",54],
-        ["REU",21],["TKM",19],["ISR",20],["TJK",60],["ROU",4],["TKL",44],["GNB",38],
-        ["GUM",67],["GTM",2],["SGS",95],["GNQ",57],["GLP",53],
-        ["GUY",24],["GGY",4],["GUF",21],["GEO",42],["GRD",65],
-        ["GAB",47],["SLV",15],["GIN",19],["GMB",63],["GRL",56],
-        ["ERI",57],["MNE",93],["MDA",39],["MDG",71],["MAF",16],["MAR",8],
-        ["MCO",25],["UZB",81],["MMR",21],["MLI",95],["MAC",33],["MNG",93],
-        ["MHL",15],["MKD",52],["MUS",19],["MLT",69],["MWI",37],["MDV",44],
-        ["MTQ",13],["MNP",21],["MSR",89],["MRT",20],["IMN",72],["UGA",59],
-        ["TZA",62],["IOT",56],
-        ["SHN",91],["FJI",22],["FLK",4],["FSM",69],["FRO",70],
-        ["NIC",66],["NAM",63],["VUT",15],["NCL",66],
-        ["NER",34],["NFK",33],["NPL",21],["NRU",13],
-        ["NIU",6],["COK",19],["XKX",32],["CIV",27],["COL",64],
-        ["CHN",16],["CMR",70],["CHL",15],["CCK",85],["CAN",76],["COG",20],
-        ["CAF",93],["COD",36],["CZE",77],["CYP",65],["CXR",14],["CRI",31],
-        ["CUW",67],["CPV",63],["CUB",40],["SWZ",58],["SYR",96],["SXM",31]];
+    var series = [ ["ARG",1, "阿根廷",26],["AUS",53,"澳大利亞",14],["AUT",3,"奧地利",27],["BEL",4,"比利時",24],
+        ["BRA",70,"巴西",9],["CAN",70,"加拿大",10],["CHL",7,"智利",42],["CHN",95,"中國",2],["COL",9,"哥倫比亞",39],
+        ["DNK",10,"丹麥",36],["EGY",11,"埃及",45],["FIN",12,"芬蘭",44],["FRA",80,"法國",6],["DEU",90,"德國",4],
+        ["GRC",15,"希臘",52],["HKG",16,"香港",35],["IND",77,"印度",7],["IDN",48,"印尼",16],["IRL",19,"愛爾蘭",33],
+        ["ISR",18,"以色列",34],["ITA",75,"義大利",8],["JPN",92,"日本",3],["KOR",65,"韓國",11],
+        ["MYS",23,"馬來西亞",37],["MEX",49,"墨西哥",15],["NLD",47,"荷蘭",17],["NZL",26,"紐西蘭",53],
+        ["NGA",27,"奈及利亞",31],["NOR",28,"挪威",28],["PAK",29,"巴基斯坦",41],["PER",30,"秘魯",51],
+        ["PHL",31,"菲律賓",40],["POL",32,"波蘭",23],["PRT",33,"葡萄牙",49],["QAT",34,"卡達",55],
+        ["RUS",60," 俄羅斯",12],["SAU",46,"沙烏地阿拉伯",18],["SGP",37,"新加坡",38],["ZAF",38,"南非",32],
+        ["ESP",55,"西班牙",13],["SWE",43,"瑞典",22],["RWA",88,"盧安達",143],["SRB",21,"塞爾維亞",86],
+        ["TLS",43,"東帝汶",163],["CHE",45,"瑞士",20],["TWN",44,"台灣",21],["THA",46,"泰國",25],["TUR",45,"土耳其",19],
+        ["ARE",48,"阿聯",29],["GBR",85,"英國",5],["USA",99,"美國",1],["VNM",54,"越南",47]];
 
 
     // Datamaps expect data in format:
@@ -189,8 +176,10 @@
     series.forEach(function(item){ //
         // item example value ["USA", 70]
         var iso = item[0],
-                value = item[1];
-        dataset[iso] = { iso: iso,numberOfThings: value, fillColor: paletteScale(value) };
+            value = item[1],
+            name = item[2],
+            gdp = item[3];
+        dataset[iso] = { iso: iso, name: name, fillColor: paletteScale(value), gdp:gdp };
     });
 
     // render map
@@ -218,7 +207,8 @@
                 return ['<div class="hoverinfo">',
                     '<strong>', geo.properties.name, '</strong>',
                     '(', data.iso, ')',
-                    '<br>Count: <strong>', data.numberOfThings, '</strong>',
+                    '<br><strong>', data.name, '</strong>',
+                    ' GDP:', data.gdp,
                     '</div>'].join('');
             }
         }
