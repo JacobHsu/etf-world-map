@@ -17,8 +17,13 @@ package.json
 https://jacobhsu.github.io/etf-world-map/  
 https://jacobhsu.tw/etf-world  
 
+## Note
 
-# Reference
+datamaps/src/examples/[~.html](https://github.com/markmarkoh/datamaps/blob/master/src/examples/highmaps_world.html)
+需用 3.2.2 版本 最新版本 5.16
+https://cdnjs.cloudflare.com/ajax/libs/d3/3.2.2/d3.min.js
+
+## Reference
 
 [ETF Country Exposure Tool](https://etfdb.com/tool/etf-country-exposure-tool/)  
 [purecss](https://purecss.io/)  
@@ -28,7 +33,7 @@ purecss [Grids](https://purecss.io/grids/)
 [ETFdb.com](https://etfdb.com/screener/)  
 [ETF Stock Exposure Tool](https://etfdb.com/tool/etf-stock-exposure-tool/)  
 [Google 試算表函式清單](https://support.google.com/docs/table/25273?hl=zh-Hant)  
-> F1 `https://etfdb.com/search/?utf8=✓&q=` & A8 `Argentina` = `=$F$1&A8`  
+F1 `https://etfdb.com/search/?utf8=✓&q=` & A8 `Argentina` = `=$F$1&A8`  
 [World ETF spreadsheets](https://docs.google.com/spreadsheets/d/1OFsHcJFNT2epzgSD0Y55kaTSvpp9MfVw1VyAdG-xdps/edit?usp=sharing)
 `ctrl + shift + v` vs code browser preview  
 [Hidden/Visible responsive helper classes for PureCSS Framework - using pixels or EMs](https://gist.github.com/rowej83/34117abebf53cd895fa4)  
